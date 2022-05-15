@@ -1,0 +1,5 @@
+// SPDX-License-Identifier: ISC
+{
+  "editor.wordWrap": "on",
+  "nix.enableLanguageServer": true,
+}
