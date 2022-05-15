@@ -22,43 +22,68 @@
 
   environment.systemPackages = with pkgs; [
     git
-    gparted
+    libvirt
+    mg
     nix-prefetch-scripts
-    wget
-    vim
     tmux
+    vscode
+    wget
+  ];
+
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    spleen
   ];
 
   networking = {
     hostName = "nixos";
-    networkmanager = {
-      enable = true;
-      packages = [ pkgs.networkmanager-openvpn ];
-    };
-
     useDHCP = false; # Deprecated, explicitly set to false
   };
 
   programs = {
+    dconf.enable = true;
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
     };
 
     mtr.enable = true;
-    sway.enable = true;
   };
 
   security.rtkit.enable = true;
 
   services = {
+    # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak.enable = true;
     gvfs.enable = true;
+    openssh.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      jack.enable = false;
+      media-session.enable = false;
+      pulse.enable = true;
+    };
+
     printing.enable = true;
-    sshd.enable = true;
+
+    xserver = {
+      enable = true;
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
+    };
+
   };
 
   sound = {
-    enable = true;
+    enable = false;
     mediaKeys.enable = true;
   };
 
