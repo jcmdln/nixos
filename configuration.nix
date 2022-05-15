@@ -37,6 +37,8 @@
     spleen
   ];
 
+  hardware.pulseaudio.enable = false;
+
   networking = {
     hostName = "nixos";
     useDHCP = false; # Deprecated, explicitly set to false
@@ -83,7 +85,7 @@
   };
 
   sound = {
-    enable = false;
+    enable = true;
     mediaKeys.enable = true;
   };
 
