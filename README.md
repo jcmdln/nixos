@@ -47,4 +47,5 @@ reboot
 ```sh
 nix-channel --update
 nixos-rebuild switch --upgrade
+nix-collect-garbage
 ```
