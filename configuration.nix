@@ -14,6 +14,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_5_15;
+
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
@@ -21,7 +22,9 @@
   };
 
   environment.systemPackages = with pkgs; [
+    btrfs-progs
     git
+    gnome.gnome-tweaks
     libvirt
     mg
     nix-prefetch-scripts
@@ -111,7 +114,7 @@
   zramSwap = {
     enable = true;
     # Ensure we don't exceed a 4GiB swap
-    memoryMax = 4294967296;
+    memoryMax = 1024 * 1024 * 4096;
     # Use 25% of available system memory
     memoryPercent = 25;
   };
