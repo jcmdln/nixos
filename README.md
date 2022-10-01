@@ -3,13 +3,15 @@ This repository is where I keep my NixOS notes and materials.
 https://nixos.org/manual/nixos/stable/index.html
 
 # Develop
+
 ```sh
 nix --extra-experimental-features "nix-command flakes" profile install \
-  github:nix-community/rnix-lsp \
-  github:serokell/nixfmt
+    github:nix-community/nixpkgs-fmt \
+    github:nix-community/rnix-lsp
 ```
 
 # Install
+
 ```sh
 # Create a GPT partition table
 parted /dev/vda -- mklabel gpt
@@ -44,6 +46,7 @@ reboot
 ```
 
 # Update
+
 ```sh
 nix-channel --update
 nixos-rebuild switch --upgrade
