@@ -35,7 +35,17 @@ mount -o noatime,compress=zstd,subvol=nix /dev/disk/by-label/nixos /mnt/nix
 
 # Configure NixOS
 nixos-generate-config --root /mnt
+mv /mnt/etc/nixos/configuration.nix{,.backup}
+curl -L -o /mnt/etc/nixos/configuration.nix \
+    https://raw.githubusercontent.com/jcmdln/nixos/master/configuration.nix
+
+# Install
 nixos-install
+
+# (Optional) Cleanup any garbage we may have accumulated
+nix-collect-garbage
+
+# Reboot into the new system
 reboot
 ```
 
