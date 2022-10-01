@@ -28,7 +28,7 @@
     # delve
     # go_1_18
     # go-tools
-    # golsp
+    # gopls
 
     # python310
     # python310Packages.pip
