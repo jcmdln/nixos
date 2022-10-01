@@ -2,15 +2,9 @@ This repository is where I keep my NixOS notes and materials.
 
 https://nixos.org/manual/nixos/stable/index.html
 
-# Develop
+# Usage
 
-```sh
-nix --extra-experimental-features "nix-command flakes" profile install \
-    github:nix-community/nixpkgs-fmt \
-    github:nix-community/rnix-lsp
-```
-
-# Install
+## Install NixOS
 
 ```sh
 # Create a GPT partition table
@@ -33,9 +27,9 @@ btrfs subvolume create /mnt/nix
 umount /mnt
 
 # Mount partitions
+mount -o compress=zstd,subvol=root /dev/disk/by-label/nixos /mnt
 mkdir -p /mnt/{boot,home,nix}
 mount /dev/disk/by-label/boot /mnt/boot
-mount -o compress=zstd,subvol=root /dev/disk/by-label/nixos /mnt
 mount -o compress=zstd,subvol=home /dev/disk/by-label/nixos /mnt/home
 mount -o noatime,compress=zstd,subvol=nix /dev/disk/by-label/nixos /mnt/nix
 
@@ -45,10 +39,22 @@ nixos-install
 reboot
 ```
 
-# Update
+## Update
 
 ```sh
 nix-channel --update
 nixos-rebuild switch --upgrade
 nix-collect-garbage
+```
+
+# Contributing
+
+## Developing
+
+If your editor supports LSP, consider installing the following utilities:
+
+```sh
+nix --extra-experimental-features "nix-command flakes" profile install \
+    github:nix-community/nixpkgs-fmt \
+    github:nix-community/rnix-lsp
 ```
