@@ -43,7 +43,7 @@ curl -L -o /mnt/etc/nixos/configuration.nix \
 nixos-install
 
 # (Optional) Cleanup any garbage we may have accumulated
-nix-collect-garbage
+nix-collect-garbage -d
 
 # Reboot into the new system
 reboot
@@ -52,9 +52,9 @@ reboot
 ## Update
 
 ```sh
-nix-channel --update
-nixos-rebuild switch --upgrade
-nix-collect-garbage
+nix-channel --update &&
+nixos-rebuild switch --upgrade &&
+nix-collect-garbage -d
 ```
 
 # Contributing
@@ -64,7 +64,14 @@ nix-collect-garbage
 If your editor supports LSP, consider installing the following utilities:
 
 ```sh
-nix --extra-experimental-features "nix-command flakes" profile install \
+nix profile install \
     github:nix-community/nixpkgs-fmt \
     github:nix-community/rnix-lsp
 ```
+
+# Special Thanks
+
+-   https://github.com/nixos
+-   https://github.com/nix-community
+-   https://nixos.wiki/wiki/Flakes
+-   https://github.com/mitchellh/nixos-config

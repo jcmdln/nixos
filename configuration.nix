@@ -1,8 +1,12 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{ config, pkgs, nixpkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
+
+  config.system.nixos.release = "22.05";
+  system.stateVersion = "22.05";
+
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
@@ -21,31 +25,40 @@
     git
     inetutils
     nix-prefetch-scripts
-    podman
     tmux
     wget
 
+    ## Compilation
+    # autoconf
+    # autotools
+    # clang_14
+    # clang-analyzer
+    # clang-tools_14
+    # cmake
+    # meson
+    # mold
+    # musl
+    # pkg-config
+    # samurai
+
+    ## Golang
     # delve
     # go_1_18
     # go-tools
     # gopls
 
+    ## Python
     # python310
     # python310Packages.pip
     # python310Packages.pipx
     # python310Packages.virtualenv
 
+    ## Rust
     # cargo
     # clippy
     # rust-analyzer
     # rustc
     # rustfmt
-  ];
-
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
   ];
 
   networking.hostName = "nixos";
@@ -62,13 +75,13 @@
   services.openssh.enable = true;
   time.timeZone = "US/Eastern";
 
-  virtualisation = {
-    libvirtd.enable = false;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-    };
-  };
+  # virtualisation = {
+  #   libvirtd.enable = true;
+  #   podman = {
+  #     enable = true;
+  #     dockerCompat = true;
+  #   };
+  # };
 
   zramSwap = {
     enable = true;
