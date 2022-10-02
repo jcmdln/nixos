@@ -1,12 +1,10 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, nixpkgs, ... }: {
+{ config, pkgs, nixpkgs, ... }: with config; {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  config.system.nixos.release = "22.05";
   system.stateVersion = "22.05";
-
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
