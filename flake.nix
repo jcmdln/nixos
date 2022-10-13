@@ -13,25 +13,20 @@
 
   outputs = { self, nixpkgs }: {
     nixosConfigurations = {
-      # "laptop" = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [ ./machine/workstation.nix ];
-      # };
-
-      # "server" = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [ ./machine/server.nix ];
-      # };
+      "server" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./machine/server.nix ];
+      };
 
       "vagrant" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./machine/vagrant.nix ];
       };
 
-      # "workstation" = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [ ./machine/workstation.nix ];
-      # };
+      "workstation" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./machine/workstation.nix ];
+      };
     };
   };
 }
