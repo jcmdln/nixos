@@ -18,9 +18,12 @@
         modules = [ ./machine/server.nix ];
       };
 
-      "vagrant" = nixpkgs.lib.nixosSystem {
+      "vagrant-libvirt" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./machine/vagrant.nix ];
+        modules = [
+          ./hardware/qemu-libvirt-x86_64.nix
+          ./machine/vagrant.nix
+        ];
       };
 
       "workstation" = nixpkgs.lib.nixosSystem {

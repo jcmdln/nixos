@@ -1,8 +1,6 @@
 # SPDX-License-Identifier: ISC
 
 { config, pkgs, ... }: {
-  imports = [ ../hardware-configuration.nix ];
-
   networking.hostName = "nixos";
   system.stateVersion = "22.05";
   time.timeZone = "US/Eastern";

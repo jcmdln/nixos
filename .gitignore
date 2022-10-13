@@ -19,6 +19,11 @@
 !.vscode/extensions.json
 !.vscode/settings.json
 
+!hardware/
+#!hardware/desktop.nix
+#!hardware/laptop.nix
+!hardware/qemu-libvirt-x86_64.nix
+
 !machine/
 !machine/common.nix
 !machine/server.nix
