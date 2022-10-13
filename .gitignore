@@ -12,8 +12,15 @@
 !flake.nix
 !LICENSE
 !README.md
+!Vagrantfile
 
 # Include specific files from directories
 !.vscode/
 !.vscode/extensions.json
 !.vscode/settings.json
+
+!machine/
+!machine/common.nix
+!machine/server.nix
+!machine/vagrant.nix
+!machine/workstation.nix

@@ -2,25 +2,36 @@
 {
   description = "NixOS by jcmdln";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
-
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # nixos-hardware.url = "github:NixOS/nixos-hardware";
+  nixConfig = {
+    extra-experimental-features = "nix-command flakes";
+    extra-substituters = "https://nix-community.cachix.org";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
+  };
 
+  outputs = { self, nixpkgs }: {
     nixosConfigurations = {
-      "nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
-      };
-    };
+      # "laptop" = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [ ./machine/workstation.nix ];
+      # };
 
+      # "server" = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [ ./machine/server.nix ];
+      # };
+
+      "vagrant" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./machine/vagrant.nix ];
+      };
+
+      # "workstation" = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [ ./machine/workstation.nix ];
+      # };
+    };
   };
 }
