@@ -3,6 +3,10 @@
 { config, pkgs, ... }: {
   imports = [ ./common.nix ];
 
+  environment.systemPackages = with pkgs; [
+    gnused
+  ];
+
   security = {
     rtkit.enable = true;
     sudo.extraRules = [
