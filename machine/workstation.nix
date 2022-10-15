@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: ISC
 
 { config, pkgs, ... }: {
-  imports = [ ./common.nix ];
-
-  networking.hostName = "workstation";
+  imports = [ ./server.nix ];
 
   fonts.fonts = with pkgs; [
     noto-fonts
@@ -12,6 +10,7 @@
   ];
 
   services = {
+    dconf.enable = true;
     flatpak.enable = true;
     pipewire.enable = true;
     xserver = {
@@ -20,14 +19,6 @@
         plasma5.enable = true;
         sddm.enable = true;
       };
-    };
-  };
-
-  virtualisation = {
-    libvirtd.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
     };
   };
 }

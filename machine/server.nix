@@ -3,8 +3,6 @@
 { config, pkgs, ... }: {
   imports = [ ./common.nix ];
 
-  networking.hostName = "server";
-
   environment.systemPackages = with pkgs; [
     bpftrace
   ];
