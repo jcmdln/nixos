@@ -1,11 +1,14 @@
-The 'hardware' directory contains files which define the hardware configuration
-of specific devices.
+This directory contains a set of hardware configurations which share a
+[common](./common.nix) base.
 
 # Partitioning and Mounting (Example)
 
-Each file represents a unique target, though all currently use BTRFS and expect
-the labels `root`, `boot`, `home` and `nix` to exist. Below are the steps I
-perform when performing a first install of NixOS:
+All hardware configurations are built on the assumption that the filesystem has
+the labels `root`, `boot`, `home` and `nix`. The following example is from
+[assets/nixos/install.sh][2] in [jcmdln/vagrant-boxes][3]:
+
+[2]: https://github.com/jcmdln/vagrant-boxes/blob/master/assets/nixos/install.sh
+[3]: https://github.com/jcmdln/vagrant-boxes
 
 ```sh
 # Create a GPT partition table
