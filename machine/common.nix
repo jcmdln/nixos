@@ -19,18 +19,19 @@
     dig
     emacs-nox
     inetutils
-    gnused
+    tmux
     unzip
+    vim
     wget
   ];
 
   programs = {
-    dconf.enable = true;
     gnupg.agent.enable = true;
     mtr.enable = true;
   };
 
   security.rtkit.enable = true;
+
   services = {
     dbus.enable = true;
     openssh.enable = true;
