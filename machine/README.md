@@ -1,4 +1,4 @@
-The 'machine' directory defines [NixOS Configuration][1] modules that share a
+This directory contains a set of [NixOS Configuration][1] modules that share a
 [common](./common.nix) base. Each file represents the configuration of a
 particular class of machines such as servers, workstations, etc.
 
