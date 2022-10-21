@@ -9,8 +9,9 @@
     noto-fonts-emoji
   ];
 
+  programs.dconf.enable = true;
+
   services = {
-    dconf.enable = true;
     flatpak.enable = true;
     pipewire.enable = true;
 
