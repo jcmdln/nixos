@@ -15,12 +15,16 @@ Vagrant.configure("2") do |config|
     c.vm.box_version = "22.05"
   end
 
-  # FIXME: There's probably a simpler way to do this
-  config.vm.provision "file", source: "./flake.lock", destination: "$HOME/flake.lock"
-  config.vm.provision "file", source: "./flake.nix", destination: "$HOME/flake.nix"
-  config.vm.provision "file", source: "./hardware", destination: "$HOME/hardware"
-  config.vm.provision "file", source: "./machine", destination: "$HOME/machine"
+  ["flake.lock", "flake.nix", "hardware", "machine"].each do |file|
+    config.vm.provision "file", source: "./#{file}", destination: "$HOME/#{file}"
+  end
 
-  config.vm.provision "shell",
-    inline: "sudo nixos-rebuild switch --flake /home/vagrant#vagrant-libvirt"
+  config.vm.provision "shell" do |sh|
+    sh.privileged = true
+    sh.inline = %Q{
+      set -ex
+      nixos-rebuild switch --flake /home/vagrant#vagrant-libvirt
+      nix-collect-garbage -d
+    }
+  end
 end

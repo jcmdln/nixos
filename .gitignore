@@ -4,10 +4,12 @@
 *
 
 # Include specific files
+!.dockerignore
 !.editorconfig
 !.gitignore
 !.prettierrc.yml
 !configuration.nix
+!Dockerfile
 !flake.lock
 !flake.nix
 !LICENSE
@@ -21,7 +23,7 @@
 
 !hardware/
 !hardware/common.nix
-#!hardware/desktop-generic-amd.nix
+!hardware/desktop-generic-amd.nix
 #!hardware/laptop-framework-intel.nix
 !hardware/qemu-libvirt-x86_64.nix
 
@@ -30,3 +32,5 @@
 !machine/server.nix
 !machine/vagrant.nix
 !machine/workstation.nix
+
+#!package/

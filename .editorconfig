@@ -16,6 +16,10 @@ trim_trailing_whitespace = true
 indent_size = 2
 tab_width = 2
 
+[flake.lock]
+indent_size = 2
+tab_width = 2
+
 [Vagrantfile]
 indent_size = 2
 tab_width = 2

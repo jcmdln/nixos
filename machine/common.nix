@@ -13,17 +13,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    btrfs-progs
-    curl
-    dig
-    emacs-nox
-    inetutils
-    tmux
-    unzip
-    vim
-    wget
-  ];
+  environment.systemPackages = with pkgs; [ bpftrace btrfs-progs dig inetutils ];
 
   programs = {
     gnupg.agent.enable = true;
@@ -40,7 +30,7 @@
 
   zramSwap = {
     enable = true;
-    memoryMax = 4 * 1024 * 1024 * 1024; # 4GiB
-    memoryPercent = 40;
+    memoryMax = 8 * 1024 * 1024 * 1024; # 8GiB
+    memoryPercent = 33;
   };
 }

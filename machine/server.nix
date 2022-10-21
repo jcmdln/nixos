@@ -3,9 +3,9 @@
 { config, pkgs, ... }: {
   imports = [ ./common.nix ];
 
-  environment.systemPackages = with pkgs; [
-    bpftrace
-  ];
+  environment.systemPackages = with pkgs; [ htop iftop iotop lm_sensors ];
+
+  services.fwupd.enable = true;
 
   virtualisation = {
     libvirtd.enable = true;

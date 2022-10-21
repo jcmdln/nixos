@@ -3,6 +3,7 @@
   "recommendations": [
     "jnoortheen.nix-ide",
     "redhat.vscode-yaml",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "kubukoz.nickel-syntax"
   ]
 }

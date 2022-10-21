@@ -13,6 +13,14 @@
 
   outputs = { self, nixpkgs }: {
     nixosConfigurations = {
+      "desktop" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hardware/desktop-generic-amd.nix
+          ./machine/workstation.nix
+        ];
+      };
+
       "server" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./machine/server.nix ];
@@ -26,10 +34,6 @@
         ];
       };
 
-      "workstation" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./machine/workstation.nix ];
-      };
     };
   };
 }

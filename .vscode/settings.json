@@ -4,6 +4,10 @@
   "editor.formatOnSave": true,
   "editor.trimAutoWhitespace": true,
   "editor.wordWrap": "on",
+  "files.associations": {
+    ".dockerignore": "ignore",
+    "flake.lock": "json"
+  },
   "nix.enableLanguageServer": true,
   "nix.formatterPath": "nixpkgs-fmt",
   "nix.serverPath": "rnix-lsp",
