@@ -15,7 +15,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ bpftrace btrfs-progs dig git inetutils ];
+  environment.systemPackages = with pkgs; [ bpftrace btrfs-progs dig emacs-nox git inetutils ];
 
   networking = {
     hostName = "nixos";
