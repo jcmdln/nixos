@@ -30,6 +30,4 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
-
-  networking.hostName = "nixos";
 }
