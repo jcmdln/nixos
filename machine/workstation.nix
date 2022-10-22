@@ -11,6 +11,11 @@
     noto-fonts-emoji
   ];
 
+  networking = {
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
+  };
+
   programs.dconf.enable = true;
 
   services = {

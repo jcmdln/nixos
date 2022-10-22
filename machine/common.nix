@@ -1,9 +1,11 @@
 # SPDX-License-Identifier: ISC
 
 { config, pkgs, ... }: {
-  networking.hostName = "nixos";
-  system.stateVersion = "22.05";
-  time.timeZone = "US/Eastern";
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    extra-substituters = "https://nix-community.cachix.org";
+  };
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_5_19;
@@ -14,6 +16,11 @@
   };
 
   environment.systemPackages = with pkgs; [ bpftrace btrfs-progs dig git inetutils ];
+
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+  };
 
   programs = {
     gnupg.agent.enable = true;
@@ -27,6 +34,9 @@
     openssh.enable = true;
     resolved.enable = true;
   };
+
+  system.stateVersion = "22.05";
+  time.timeZone = "US/Eastern";
 
   zramSwap = {
     enable = true;

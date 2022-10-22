@@ -30,7 +30,4 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
-
-  networking.networkmanager.enable = true;
-  nixpkgs.config.allowUnfree = true;
 }
