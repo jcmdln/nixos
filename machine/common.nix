@@ -19,15 +19,11 @@
     bpftrace
     btrfs-progs
     dig
-    (emacs-nox.override { nativeComp = true; })
     git
     inetutils
   ];
 
-  networking = {
-    hostName = "nixos";
-    networkmanager.enable = true;
-  };
+  networking.networkmanager.enable = true;
 
   programs = {
     gnupg.agent.enable = true;
