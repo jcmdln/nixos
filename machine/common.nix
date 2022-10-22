@@ -34,8 +34,8 @@
     openssh.enable = true;
     resolved = {
       enable = true;
-      dnssec = false;
-      llmnr = false;
+      dnssec = "false";
+      llmnr = "false";
     };
   };
 
