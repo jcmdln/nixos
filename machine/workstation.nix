@@ -18,7 +18,12 @@
     # - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     # - sudo flatpak override --filesystem=xdg-config/gtk-3.0
     flatpak.enable = true;
-    pipewire.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
 
     xserver = {
       enable = true;
