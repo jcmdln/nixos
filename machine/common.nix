@@ -6,7 +6,7 @@
   time.timeZone = "US/Eastern";
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_5_15;
+    kernelPackages = pkgs.linuxPackages_5_19;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;

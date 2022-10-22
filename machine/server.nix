@@ -3,7 +3,7 @@
 { config, pkgs, ... }: {
   imports = [ ./common.nix ];
 
-  environment.systemPackages = with pkgs; [ htop iftop iotop lm_sensors ];
+  environment.systemPackages = with pkgs; [ htop iftop iotop lm_sensors pciutils usbutils ];
 
   services.fwupd.enable = true;
 

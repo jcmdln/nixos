@@ -26,5 +26,11 @@
     };
   };
 
-  networking.useDHCP = lib.mkDefault true;
+  hardware = {
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+  };
+
+  networking.networkmanager.enable = true;
+  nixpkgs.config.allowUnfree = true;
 }

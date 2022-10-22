@@ -3,13 +3,18 @@
 { config, lib, ... }: {
   imports = [ ./common.nix ];
 
-  boot.initrd = {
-    availableKernelModules = [ "ahci" "nvme" "sd_mod" "usb_storage" "usbhid" "xhci_pci" ];
+  boot = {
+    initrd.availableKernelModules = [ "ahci" "nvme" "sd_mod" "usb_storage" "usbhid" "xhci_pci" ];
     kernelModules = [ "kvm-amd" ];
   };
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     video.hidpi.enable = lib.mkDefault true;
+  };
+
+  networking = {
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
   };
 }
