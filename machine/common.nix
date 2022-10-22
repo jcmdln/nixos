@@ -32,7 +32,11 @@
   services = {
     dbus.enable = true;
     openssh.enable = true;
-    resolved.enable = true;
+    resolved = {
+      enable = true;
+      dnssec = false;
+      llmnr = false;
+    };
   };
 
   system.stateVersion = "22.05";
