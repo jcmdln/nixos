@@ -13,7 +13,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ bpftrace btrfs-progs dig inetutils ];
+  environment.systemPackages = with pkgs; [ bpftrace btrfs-progs dig git inetutils ];
 
   programs = {
     gnupg.agent.enable = true;
