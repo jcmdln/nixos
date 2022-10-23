@@ -7,7 +7,9 @@ https://nixos.org/manual/nixos/stable/index.html
 If your editor supports LSP, consider installing the following utilities:
 
 ```sh
-nix profile install nixpkgs#nixpkgs-fmt nixpkgs#rnix-lsp
+nix profile install \
+    nixpkgs/release-22.05#nixpkgs-fmt \
+    nixpkgs/release-22.05#rnix-lsp
 ```
 
 # Special Thanks
