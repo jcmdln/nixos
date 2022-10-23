@@ -33,4 +33,5 @@
 !machine/vagrant.nix
 !machine/workstation.nix
 
-#!package/
+!tools/
+!tools/install.sh
