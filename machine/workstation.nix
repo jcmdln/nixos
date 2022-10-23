@@ -3,7 +3,11 @@
 { config, pkgs, ... }: {
   imports = [ ./server.nix ];
 
-  environment.systemPackages = with pkgs; [ libsForQt5.breeze-gtk ];
+  environment.systemPackages = with pkgs; [
+    (emacs-nox.override { nativeComp = true; })
+    libsForQt5.breeze-gtk
+    vscode
+  ];
 
   fonts.fonts = with pkgs; [
     noto-fonts
