@@ -8,7 +8,14 @@
   services.fwupd.enable = true;
 
   virtualisation = {
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        ovmf.enable = true;
+        package = pkgs.qemu_kvm;
+        swtpm.enable = true;
+      };
+    };
     podman = {
       enable = true;
       dockerCompat = true;

@@ -33,7 +33,6 @@
           ./machine/vagrant.nix
         ];
       };
-
     };
   };
 }
