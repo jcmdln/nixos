@@ -4,7 +4,7 @@
   imports = [ ./server.nix ];
 
   environment.systemPackages = with pkgs; [
-    (emacs-nox.override { nativeComp = true; })
+    emacs
     libsForQt5.breeze-gtk
     vscode
   ];
@@ -16,6 +16,7 @@
   ];
 
   networking = {
+    hostName = "workstation";
     networkmanager.wifi.backend = "iwd";
     wireless.iwd.enable = true;
   };
@@ -23,9 +24,10 @@
   programs.dconf.enable = true;
 
   services = {
-    # Errata: Flatpak requires extra steps
-    # - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    # - sudo flatpak override --filesystem=xdg-config/gtk-3.0
+    # FIXME: Installing flatpak requires manually adding a repo
+    # $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    # FIXME: Flatpaks can't use old GTK3 themes from XDG_CONFIG without intervention
+    # $ sudo flatpak override --filesystem=xdg-config/gtk-3.0
     flatpak.enable = true;
 
     pipewire = {

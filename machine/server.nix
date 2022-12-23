@@ -5,6 +5,8 @@
 
   environment.systemPackages = with pkgs; [ htop iftop iotop lm_sensors pciutils usbutils ];
 
+  networking.hostName = "server";
+
   services.fwupd.enable = true;
 
   virtualisation = {

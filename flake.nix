@@ -8,28 +8,40 @@
   };
 
   inputs = {
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixos-hardware, nixpkgs }: {
     nixosConfigurations = {
-      "desktop" = nixpkgs.lib.nixosSystem {
+      "workstation" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hardware/desktop-generic-amd.nix
+          nixos-hardware.common-cpu-amd
+          nixos-hardware.common-cpu-amd-pstate
+          ./hardware/common.nix
+          ./hardware/cpu/amd/kvm.nix
+          ./hardware/nvme/default.nix
           ./machine/workstation.nix
         ];
       };
 
-      "server" = nixpkgs.lib.nixosSystem {
+      "laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./machine/server.nix ];
+        modules = [
+          nixos-hardware.framework
+          ./hardware/common.nix
+          ./hardware/cpu/intel/kvm.nix
+          ./hardware/nvme/default.nix
+          ./machine/laptop.nix
+        ];
       };
 
       "vagrant-libvirt" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hardware/qemu-libvirt-x86_64.nix
+          ./hardware/common.nix
+          ./hardware/cpu/qemu/default.nix
           ./machine/vagrant.nix
         ];
       };

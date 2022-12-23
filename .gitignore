@@ -22,16 +22,12 @@
 !.vscode/settings.json
 
 !hardware/
-!hardware/common.nix
-!hardware/desktop-generic-amd.nix
-#!hardware/laptop-framework-intel.nix
-!hardware/qemu-libvirt-x86_64.nix
+!hardware/**
+!hardware/**.nix
 
 !machine/
-!machine/common.nix
-!machine/server.nix
-!machine/vagrant.nix
-!machine/workstation.nix
+!machine/**
+!machine/**.nix
 
 !tools/
 !tools/setup-partitions-desktop.sh

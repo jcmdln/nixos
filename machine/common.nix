@@ -1,10 +1,11 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     extra-substituters = "https://nix-community.cachix.org";
   };
+
   nixpkgs.config.allowUnfree = true;
 
   boot = {
@@ -23,7 +24,10 @@
     inetutils
   ];
 
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+  };
 
   programs = {
     gnupg.agent.enable = true;
@@ -34,6 +38,7 @@
 
   services = {
     dbus.enable = true;
+    fwupd.enable = true;
     openssh.enable = true;
     resolved = {
       enable = true;
@@ -48,6 +53,6 @@
   zramSwap = {
     enable = true;
     memoryMax = 8 * 1024 * 1024 * 1024; # 8GiB
-    memoryPercent = 33;
+    memoryPercent = 25;
   };
 }
