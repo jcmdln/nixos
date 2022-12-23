@@ -19,6 +19,7 @@
         modules = [
           nixos-hardware.common-cpu-amd
           nixos-hardware.common-cpu-amd-pstate
+          nixos-hardware.common-gpu-amd
           ./hardware/common.nix
           ./hardware/cpu/amd/kvm.nix
           ./hardware/nvme/default.nix
