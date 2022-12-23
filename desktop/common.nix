@@ -21,8 +21,6 @@
       pulse.enable = true;
     };
 
-    xdg.portal.enable = true;
-
     xserver = {
       enable = true;
       libinput = {
@@ -35,4 +33,6 @@
       };
     };
   };
+
+  xdg.portal.enable = true;
 }
