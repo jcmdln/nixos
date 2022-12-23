@@ -11,7 +11,6 @@
   };
 
   networking = {
-    hostName = "workstation";
     networkmanager.wifi.backend = "iwd";
     wireless.iwd.enable = true;
   };

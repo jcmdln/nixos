@@ -2,6 +2,4 @@
 
 { config, pkgs, ... }: {
   imports = [ ./workstation.nix ];
-
-  networking.hostName = "laptop";
 }

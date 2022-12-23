@@ -12,7 +12,6 @@
     usbutils
   ];
 
-  networking.hostName = "server";
   services.fwupd.enable = true;
 
   virtualisation = {
