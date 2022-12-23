@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "nixos" do |c|
     c.vm.box = "jcmdln/nixos"
-    c.vm.box_version = "22.05"
+    c.vm.box_version = "22.11"
   end
 
   ["flake.lock", "flake.nix", "hardware", "machine"].each do |file|
@@ -23,8 +23,9 @@ Vagrant.configure("2") do |config|
     sh.privileged = true
     sh.inline = %Q{
       set -ex
-      nixos-rebuild switch --flake /home/vagrant#vagrant-libvirt
+      nixos-rebuild switch --upgrade --flake /home/vagrant#vagrant-libvirt
       nix-collect-garbage -d
+      sudo reboot
     }
   end
 end

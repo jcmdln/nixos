@@ -8,7 +8,7 @@
   nixpkgs.config.allowUnfree = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_5_19;
+    kernelPackages = pkgs.linuxPackages_6_1;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;

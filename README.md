@@ -14,7 +14,7 @@ nix profile install \
 
 # Special Thanks
 
--   https://github.com/nixos
--   https://github.com/nix-community
--   https://github.com/mitchellh/nixos-config
--   https://github.com/snabblab/snabblab-nixos
+- https://github.com/nixos
+- https://github.com/nix-community
+- https://github.com/mitchellh/nixos-config
+- https://github.com/snabblab/snabblab-nixos

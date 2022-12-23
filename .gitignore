@@ -34,4 +34,4 @@
 !machine/workstation.nix
 
 !tools/
-!tools/install.sh
+!tools/setup-partitions-desktop.sh

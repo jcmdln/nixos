@@ -3,7 +3,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.trimAutoWhitespace": true,
-  "editor.wordWrap": "on",
   "files.associations": {
     ".dockerignore": "ignore",
     "flake.lock": "json"

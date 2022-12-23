@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # SPDX-License-Identifier: ISC
 #
-# This install script is for provisioning hardware/desktop-generic-amd.nix but
+# This install script is what I use for hardware/desktop-generic-amd.nix but
 # can be used as a reference for other scenarios.
 
 set -ex -o pipefail

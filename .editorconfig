@@ -12,7 +12,7 @@ max_line_length = 100
 tab_width = 4
 trim_trailing_whitespace = true
 
-[*.{json{,c},nix,y{,a}ml}]
+[*.{json{,c},md,nix,y{,a}ml}]
 indent_size = 2
 tab_width = 2
 
