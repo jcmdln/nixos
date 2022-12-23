@@ -7,6 +7,8 @@
     gnused
   ];
 
+  networking.hostName = "nixos";
+
   security.sudo.extraRules = [
     {
       users = [ "vagrant" ];

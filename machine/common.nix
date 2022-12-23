@@ -24,10 +24,7 @@
     inetutils
   ];
 
-  networking = {
-    hostName = "nixos";
-    networkmanager.enable = true;
-  };
+  networking.networkmanager.enable = true;
 
   programs = {
     gnupg.agent.enable = true;
