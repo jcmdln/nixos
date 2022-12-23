@@ -1,12 +1,14 @@
 # SPDX-License-Identifier: ISC
 
 { config, pkgs, ... }: {
-  programs.dconf.enable = true;
+  hardware.pulseaudio.enable = false;
 
   networking = {
     networkmanager.wifi.backend = "iwd";
     wireless.iwd.enable = true;
   };
+
+  programs.dconf.enable = true;
 
   services = {
     # FIXME: Installing flatpak requires manually adding a repo
