@@ -13,9 +13,9 @@
       "workstation" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          nixos-hardware.common-cpu-amd
-          nixos-hardware.common-cpu-amd-pstate
-          nixos-hardware.common-gpu-amd
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-cpu-amd-pstate
+          nixos-hardware.nixosModules.common-gpu-amd
           ./desktop/gnome/default.nix
           ./hardware/common.nix
           ./hardware/cpu/amd/kvm.nix
@@ -27,7 +27,7 @@
       "laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          nixos-hardware.framework
+          nixos-hardware.nixosModules.framework
           ./desktop/gnome/default.nix
           ./hardware/common.nix
           ./hardware/cpu/intel/kvm.nix
