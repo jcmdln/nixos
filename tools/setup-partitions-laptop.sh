@@ -15,7 +15,7 @@ parted /dev/nvme0n1 -- set 1 esp on
 mkfs.fat -F 32 -n boot /dev/nvme0n1p1
 
 # Create and format btrfs partition
-parted nvme0n1 -- mkpart primary 1GiB -1MiB
+parted /dev/nvme0n1 -- mkpart primary 1GiB -1MiB
 mkfs.btrfs -L nixos /dev/nvme0n1p2
 
 # Create btrfs subvolumes
