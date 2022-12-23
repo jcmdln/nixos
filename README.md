@@ -8,8 +8,8 @@ If your editor supports LSP, consider installing the following utilities:
 
 ```sh
 nix profile install \
-    nixpkgs/release-22.05#nixpkgs-fmt \
-    nixpkgs/release-22.05#rnix-lsp
+    nixpkgs/release-22.11#nixpkgs-fmt \
+    nixpkgs/release-22.11#rnix-lsp
 ```
 
 # Special Thanks
