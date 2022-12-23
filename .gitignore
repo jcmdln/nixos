@@ -21,13 +21,11 @@
 !.vscode/extensions.json
 !.vscode/settings.json
 
+!desktop/
+!desktop/**
 !hardware/
 !hardware/**
-!hardware/**.nix
-
 !machine/
 !machine/**
-!machine/**.nix
-
 !tools/
-!tools/setup-partitions-desktop.sh
+!tools/*.sh

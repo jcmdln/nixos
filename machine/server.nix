@@ -3,10 +3,16 @@
 { config, pkgs, ... }: {
   imports = [ ./common.nix ];
 
-  environment.systemPackages = with pkgs; [ htop iftop iotop lm_sensors pciutils usbutils ];
+  environment.systemPackages = with pkgs; [
+    htop
+    iftop
+    iotop
+    lm_sensors
+    pciutils
+    usbutils
+  ];
 
   networking.hostName = "server";
-
   services.fwupd.enable = true;
 
   virtualisation = {
@@ -18,6 +24,7 @@
         swtpm.enable = true;
       };
     };
+
     podman = {
       enable = true;
       dockerCompat = true;

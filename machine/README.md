@@ -1,5 +1,27 @@
-This directory contains a set of [NixOS Configuration][1] modules that share a
-[common](./common.nix) base. Each file represents the configuration of a
-particular class of machines such as servers, workstations, etc.
+This directory contains `machines`, each of which represent a particular class
+of machines such as servers, workstations, laptops, etc. All `machine`s share a
+[./common.nix](./common.nix) base configuration which is extended by the other
+classes:
 
-[1]: https://nixos.org/manual/nixos/stable/#sec-changing-config
+# Common
+
+The [./common.nix](./common.nix) file contains what I would consider to be a
+solid foundation to build other classes of machines on.
+
+# Server
+
+```
+nixos-rebuild switch --flake .#server
+```
+
+# Workstation
+
+```
+nixos-rebuild switch --flake .#workstation
+```
+
+# Laptop
+
+```
+nixos-rebuild switch --flake .#laptop
+```

@@ -38,7 +38,6 @@
 
   services = {
     dbus.enable = true;
-    fwupd.enable = true;
     openssh.enable = true;
     resolved = {
       enable = true;

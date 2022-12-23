@@ -3,51 +3,16 @@
 { config, pkgs, ... }: {
   imports = [ ./server.nix ];
 
-  environment.systemPackages = with pkgs; [
-    emacs
-    libsForQt5.breeze-gtk
-    vscode
-  ];
-
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      libsForQt5.breeze-gtk
+      vscode
+    ];
+  };
 
   networking = {
     hostName = "workstation";
     networkmanager.wifi.backend = "iwd";
     wireless.iwd.enable = true;
-  };
-
-  programs.dconf.enable = true;
-
-  services = {
-    # FIXME: Installing flatpak requires manually adding a repo
-    # $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    # FIXME: Flatpaks can't use old GTK3 themes from XDG_CONFIG without intervention
-    # $ sudo flatpak override --filesystem=xdg-config/gtk-3.0
-    flatpak.enable = true;
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-    };
-
-    xserver = {
-      enable = true;
-      desktopManager.plasma5.enable = true;
-      displayManager.sddm.enable = true;
-      libinput = {
-        enable = true;
-        touchpad = {
-          disableWhileTyping = true;
-          naturalScrolling = true;
-          tapping = true;
-        };
-      };
-    };
   };
 }

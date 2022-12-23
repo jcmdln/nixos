@@ -2,12 +2,8 @@
 {
   description = "NixOS by jcmdln";
 
-  nixConfig = {
-    extra-experimental-features = "nix-command flakes";
-    extra-substituters = "https://nix-community.cachix.org";
-  };
-
   inputs = {
+    #home-manager.url = "github:nix-community/home-manager";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
   };
@@ -20,6 +16,7 @@
           nixos-hardware.common-cpu-amd
           nixos-hardware.common-cpu-amd-pstate
           nixos-hardware.common-gpu-amd
+          ./desktop/gnome/default.nix
           ./hardware/common.nix
           ./hardware/cpu/amd/kvm.nix
           ./hardware/nvme/default.nix
@@ -31,6 +28,7 @@
         system = "x86_64-linux";
         modules = [
           nixos-hardware.framework
+          ./desktop/gnome/default.nix
           ./hardware/common.nix
           ./hardware/cpu/intel/kvm.nix
           ./hardware/nvme/default.nix

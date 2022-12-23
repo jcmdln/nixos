@@ -2,15 +2,15 @@
 
 { config, lib, ... }: {
   fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+
     "/" = {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
       options = [ "compress=zstd" "subvol=root" ];
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
     };
 
     "/home" = {
