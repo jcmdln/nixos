@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: ISC
 
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: {
+  imports = [ ../hardware/common.nix ];
+
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     extra-substituters = "https://nix-community.cachix.org";

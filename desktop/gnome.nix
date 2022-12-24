@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: ISC
 
 { config, pkgs, ... }: {
-  imports = [ ../common.nix ];
+  imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks

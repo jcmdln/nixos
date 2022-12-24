@@ -16,10 +16,9 @@
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-cpu-amd-pstate
           nixos-hardware.nixosModules.common-gpu-amd
-          ./desktop/gnome/default.nix
-          ./hardware/common.nix
-          ./hardware/cpu/amd/kvm.nix
-          ./hardware/nvme/default.nix
+          ./desktop/gnome.nix
+          ./hardware/cpu/amd-kvm.nix
+          ./hardware/storage/nvme.nix
           ./machine/workstation.nix
         ];
       };
@@ -28,10 +27,9 @@
         system = "x86_64-linux";
         modules = [
           nixos-hardware.nixosModules.framework
-          ./desktop/gnome/default.nix
-          ./hardware/common.nix
-          ./hardware/cpu/intel/kvm.nix
-          ./hardware/nvme/default.nix
+          ./desktop/gnome.nix
+          ./hardware/cpu/intel-kvm.nix
+          ./hardware/storage/nvme.nix
           ./machine/laptop.nix
         ];
       };
@@ -39,8 +37,7 @@
       "vagrant-libvirt" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hardware/common.nix
-          ./hardware/cpu/qemu/default.nix
+          ./hardware/cpu/qemu.nix
           ./machine/vagrant.nix
         ];
       };

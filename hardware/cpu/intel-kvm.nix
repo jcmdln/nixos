@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: ISC
 
-{ config, lib, ... }: {
+{ config, ... }: {
   boot.kernelModules = [ "kvm-intel" ];
 }

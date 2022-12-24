@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{ config, ... }: {
   imports = [ ./workstation.nix ];
 }
