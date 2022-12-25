@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, ... }: {
+{ config, pkgs, ... }: {
   boot.kernelModules = [ "kvm-intel" ];
 
   virtualisation.libvirtd = {

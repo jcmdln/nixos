@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, ... }: {
+{ config, pkgs, ... }: {
   imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [

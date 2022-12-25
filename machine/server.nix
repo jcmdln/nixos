@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{ config, ... }: {
   imports = [ ./common.nix ];
 
   networking.hostname = "server";
