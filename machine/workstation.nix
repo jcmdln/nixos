@@ -1,17 +1,12 @@
 # SPDX-License-Identifier: ISC
 
 { config, pkgs, ... }: {
-  imports = [ ./server.nix ];
+  imports = [ ./common.nix ];
 
-  environment = {
-    systemPackages = with pkgs; [
-      libsForQt5.breeze-gtk
-      vscode
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    vscode
+  ];
 
-  networking = {
-    networkmanager.wifi.backend = "iwd";
-    wireless.iwd.enable = true;
-  };
+  networking.hostname = "workstation";
+  services.fwupd.enable = true;
 }

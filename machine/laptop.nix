@@ -1,5 +1,12 @@
 # SPDX-License-Identifier: ISC
 
 { config, ... }: {
-  imports = [ ./workstation.nix ];
+  imports = [ ./common.nix ];
+
+  environment.systemPackages = with pkgs; [
+    vscode
+  ];
+
+  networking.hostname = "laptop";
+  services.fwupd.enable = true;
 }

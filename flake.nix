@@ -34,10 +34,10 @@
         ];
       };
 
-      "vagrant-libvirt" = nixpkgs.lib.nixosSystem {
+      "vagrant" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hardware/cpu/qemu.nix
+          ./hardware/cpu/qemu64.nix
           ./machine/vagrant.nix
         ];
       };

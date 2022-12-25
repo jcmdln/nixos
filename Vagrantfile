@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     sh.privileged = true
     sh.inline = %Q{
       set -ex
-      nixos-rebuild switch --flake /home/vagrant#vagrant-libvirt
+      nixos-rebuild switch --flake /home/vagrant#vagrant
       nix-collect-garbage -d
     }
   end

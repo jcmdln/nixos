@@ -9,17 +9,13 @@
 
   networking.hostName = "nixos";
 
-  security.sudo.extraRules = [
-    {
-      users = [ "vagrant" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
+  security.sudo.extraRules = [{
+    users = [ "vagrant" ];
+    commands = [{
+      command = "ALL";
+      options = [ "NOPASSWD" ];
+    }];
+  }];
 
   users.users."vagrant" = {
     createHome = true;

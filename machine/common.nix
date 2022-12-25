@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   imports = [ ../hardware/common.nix ];
 
   nix.settings = {
@@ -23,7 +23,13 @@
     btrfs-progs
     dig
     git
+    htop
+    iftop
     inetutils
+    iotop
+    lm_sensors
+    pciutils
+    usbutils
   ];
 
   networking.networkmanager.enable = true;
@@ -47,6 +53,11 @@
 
   system.stateVersion = "22.05";
   time.timeZone = "US/Eastern";
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
   zramSwap = {
     enable = true;
