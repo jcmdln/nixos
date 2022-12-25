@@ -12,42 +12,52 @@
     };
   };
 
-  outputs = { self, home-manager, nixos-hardware, nixpkgs }: {
+  outputs = { self, home-manager, nixos-hardware, nixpkgs, ... }: {
     nixosConfigurations = {
       "laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = (with nixos-hardware.nixosModules; [
-          framework
-        ]) ++ ([
-          ./desktop/gnome.nix
-          ./hardware/cpu/intel-kvm.nix
-          ./hardware/storage/nvme.nix
+        modules = [
           ./machine/laptop.nix
-          ./users/john.nix
-        ]);
+        ] ++ (with nixos-hardware.nixosModules; [
+          framework
+        ]) ++ [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."john" = import ./home/john.nix;
+          }
+        ];
       };
 
       "vagrant" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ./hardware/cpu/qemu64.nix
-          ./machine/vagrant.nix
+        modules = [ ./machine/vagrant.nix ] ++ [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."vagrant" = import ./home/vagrant.nix;
+          }
         ];
       };
 
       "workstation" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = (with nixos-hardware.nixosModules; [
+        modules = [
+          ./machine/workstation.nix
+        ] ++ (with nixos-hardware.nixosModules; [
           common-cpu-amd
           common-cpu-amd-pstate
           common-gpu-amd
-        ]) ++ ([
-          ./desktop/gnome.nix
-          ./hardware/cpu/amd-kvm.nix
-          ./hardware/storage/nvme.nix
-          ./machine/workstation.nix
-          ./users/john.nix
-        ]);
+        ]) ++ [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."john" = import ./home/john.nix;
+          }
+        ];
       };
     };
   };

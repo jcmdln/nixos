@@ -25,9 +25,11 @@
 !desktop/**
 !hardware/
 !hardware/**
+!home/
+!home/**
 !machine/
 !machine/**
 !tools/
 !tools/*.sh
-!users/
-!users/**
+!user/
+!user/**

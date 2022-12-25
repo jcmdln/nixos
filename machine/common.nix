@@ -32,7 +32,10 @@
     usbutils
   ];
 
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = lib.mkDefault "nixos";
+    networkmanager.enable = true;
+  };
 
   programs = {
     gnupg.agent.enable = true;
@@ -43,6 +46,7 @@
 
   services = {
     dbus.enable = true;
+    fwupd.enable = true;
     openssh.enable = true;
     resolved = {
       enable = true;
@@ -51,8 +55,8 @@
     };
   };
 
-  system.stateVersion = "22.05";
-  time.timeZone = "US/Eastern";
+  system.stateVersion = "22.11";
+  time.timeZone = lib.mkDefault "US/Eastern";
 
   virtualisation.podman = {
     enable = true;

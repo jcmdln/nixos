@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
     c.vm.box_version = "22.11"
   end
 
-  ["flake.lock", "flake.nix", "hardware", "machine", "users"].each do |file|
+  ["flake.lock", "flake.nix", "hardware", "home", "machine", "user"].each do |file|
     config.vm.provision "file", source: "./#{file}", destination: "$HOME/#{file}"
   end
 

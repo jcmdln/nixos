@@ -11,7 +11,7 @@
 
   users.users."john" = {
     createHome = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "libvirt" "wheel" ];
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILTO2nxnuc/nJBeMpi0rm+6PbDu9jl04576jRf7qgMpk"

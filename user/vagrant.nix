@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, ... }: {
+{ config, inputs, ... }: {
   security.sudo.extraRules = [{
     users = [ "vagrant" ];
     commands = [{
