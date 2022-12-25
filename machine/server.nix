@@ -3,6 +3,6 @@
 { config, ... }: {
   imports = [ ./common.nix ];
 
-  networking.hostname = "server";
+  networking.hostName = "server";
   services.fwupd.enable = true;
 }

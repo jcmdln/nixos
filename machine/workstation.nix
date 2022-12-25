@@ -7,6 +7,6 @@
     vscode
   ];
 
-  networking.hostname = "workstation";
+  networking.hostName = "workstation";
   services.fwupd.enable = true;
 }
