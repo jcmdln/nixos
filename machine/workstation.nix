@@ -6,6 +6,7 @@
     ../desktop/gnome.nix
     ../hardware/cpu/amd-kvm.nix
     ../hardware/storage/nvme.nix
+    ../user/john.nix
   ];
 
   environment.systemPackages = with pkgs; [ vscode ];
