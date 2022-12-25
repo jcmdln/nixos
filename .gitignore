@@ -29,3 +29,5 @@
 !machine/**
 !tools/
 !tools/*.sh
+!users/
+!users/**
