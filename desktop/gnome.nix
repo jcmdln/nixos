@@ -7,8 +7,11 @@
     gnome.gnome-tweaks
   ];
 
-  services.xserver = {
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+  services = {
+    gnome.gnome-remote-desktop.enable = true;
+    xserver = {
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
+    };
   };
 }
