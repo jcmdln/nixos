@@ -4,8 +4,8 @@
   description = "NixOS by jcmdln";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nixpkgs.url = "github:jcmdln/nixpkgs/release-22.11";
+    nixos-hardware.url = "github:jcmdln/nixos-hardware/common-cpu-kvm";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
