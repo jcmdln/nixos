@@ -7,6 +7,8 @@
     gnome.gnome-tweaks
   ];
 
+  networking.firewall.allowedTCPPorts = [ 3389 ];
+
   services = {
     gnome.gnome-remote-desktop.enable = true;
     xserver = {
