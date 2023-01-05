@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, ... }: {
+{
   home = {
     stateVersion = "22.11";
     homeDirectory = "/home/vagrant";

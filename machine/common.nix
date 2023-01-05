@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, lib, pkgs, ... }: {
+{ lib, pkgs, ... }: {
   imports = [ ../hardware/common.nix ];
 
   nix.settings = {

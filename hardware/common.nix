@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, ... }: {
+{
   fileSystems = {
     "/boot" = {
       device = "/dev/disk/by-label/boot";

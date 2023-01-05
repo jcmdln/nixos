@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{
   hardware.pulseaudio.enable = false;
 
   networking = {

@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./common.nix
     ../hardware/cpu/qemu64.nix

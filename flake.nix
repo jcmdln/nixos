@@ -47,7 +47,6 @@
         modules = [
           ./machine/workstation.nix
         ] ++ (with nixos-hardware.nixosModules; [
-          common-cpu-amd
           common-cpu-amd-pstate
           common-gpu-amd
         ]) ++ [

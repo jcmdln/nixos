@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: ISC
 
-{ config, ... }: {
+{
   imports = [ ./common.nix ];
 
   services.xserver = {
