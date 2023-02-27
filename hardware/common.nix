@@ -1,7 +1,5 @@
-# SPDX-License-Identifier: ISC
-
-{
-  fileSystems = {
+{ lib, ... }: {
+  fileSystems = lib.mkDefault {
     "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
@@ -26,5 +24,5 @@
     };
   };
 
-  hardware.enableRedistributableFirmware = true;
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
 }

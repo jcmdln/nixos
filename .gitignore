@@ -1,5 +1,3 @@
-# SPDX-License-Identifier: ISC
-
 # Ignore everything
 *
 
@@ -23,6 +21,8 @@
 
 !desktop/
 !desktop/**
+!devices/
+!devices/**
 !hardware/
 !hardware/**
 !home/

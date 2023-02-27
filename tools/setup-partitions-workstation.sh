@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-# SPDX-License-Identifier: ISC
 #
 # This script sets up partitions for a specfic device I own. Only use this as
 # a reference, DO NOT use it verbatim!

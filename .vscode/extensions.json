@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: ISC
 {
   "recommendations": ["jnoortheen.nix-ide", "redhat.vscode-yaml", "esbenp.prettier-vscode"]
 }

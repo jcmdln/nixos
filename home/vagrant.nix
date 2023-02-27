@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: ISC
-
-{
+{ lib, ... }: {
   home = {
     stateVersion = "22.11";
     homeDirectory = "/home/vagrant";
@@ -9,7 +7,7 @@
 
   programs = {
     tmux = {
-      enable = true;
+      enable = lib.mkDefault true;
       historyLimit = 8192;
       terminal = "xterm256-color";
     };

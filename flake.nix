@@ -1,26 +1,24 @@
-# SPDX-License-Identifier: ISC
-
 {
   description = "NixOS by jcmdln";
 
   inputs = {
-    nixpkgs.url = "github:jcmdln/nixpkgs/release-22.11";
-    nixos-hardware.url = "github:jcmdln/nixos-hardware/common-cpu-kvm";
+    nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, home-manager, nixos-hardware, nixpkgs, ... }: {
+  outputs = { self, home-manager, nixpkgs, ... }: {
     nixosConfigurations = {
       "laptop" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./machine/laptop.nix
-        ] ++ (with nixos-hardware.nixosModules; [
-          framework
-        ]) ++ [
+          ./desktop/gnome.nix
+          ./devices/framework/intel-11th-gen.nix
+          ./user/john.nix
+        ] ++ [
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -32,7 +30,11 @@
 
       "vagrant" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./machine/vagrant.nix ] ++ [
+        modules = [
+          ./devices/vagrant.nix
+          ./hardware/storage/nvme.nix
+          ./user/vagrant.nix
+        ] ++ [
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -45,11 +47,11 @@
       "workstation" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./machine/workstation.nix
-        ] ++ (with nixos-hardware.nixosModules; [
-          common-cpu-amd-pstate
-          common-gpu-amd
-        ]) ++ [
+          ./devices/workstation.nix
+          ./hardware/cpu/amd.nix
+          ./hardware/gpu/amd/amdgpu.nix
+          ./hardware/storage/nvme.nix
+        ] ++ [
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

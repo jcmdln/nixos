@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: ISC
-
-{ config, home-manager, ... }: {
+{ config, lib, home-manager, ... }: {
   security.sudo.extraRules = [{
     users = [ "john" ];
     commands = [{
@@ -10,9 +8,9 @@
   }];
 
   users.users."john" = {
-    createHome = true;
+    createHome = lib.mkDefault true;
     extraGroups = [ "libvirt" "wheel" ];
-    isNormalUser = true;
+    isNormalUser = lib.mkDefault true;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILTO2nxnuc/nJBeMpi0rm+6PbDu9jl04576jRf7qgMpk"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE4qKrTnTWdbNQHrvf5wdx24UuNvGkeGBHDNC6Z3d10S"

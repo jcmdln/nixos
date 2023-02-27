@@ -1,6 +1,4 @@
-# SPDX-License-Identifier: ISC
-
-{ pkgs, ... }: {
+{ lib, pkgs }: {
   imports = [ ./common.nix ];
 
   environment.systemPackages = with pkgs; [
@@ -10,10 +8,10 @@
   networking.firewall.allowedTCPPorts = [ 3389 ];
 
   services = {
-    gnome.gnome-remote-desktop.enable = true;
+    gnome.gnome-remote-desktop.enable = lib.mkDefault true;
     xserver = {
-      desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = lib.mkDefault true;
+      displayManager.gdm.enable = lib.mkDefault true;
     };
   };
 }

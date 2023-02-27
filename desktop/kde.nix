@@ -1,10 +1,8 @@
-# SPDX-License-Identifier: ISC
-
-{
+{ lib }: {
   imports = [ ./common.nix ];
 
   services.xserver = {
-    desktopManager.plasma5.enable = true;
-    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = lib.mkDefault true;
+    displayManager.sddm.enable = lib.mkDefault true;
   };
 }
