@@ -1,6 +1,11 @@
 { lib, pkgs, ... }: {
   imports = [ ../hardware/common.nix ];
 
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    extra-substituters = "https://nix-community.cachix.org";
+  };
+
   nixpkgs.config.allowUnfree = lib.mkDefault true;
   system.stateVersion = "22.11";
   time.timeZone = lib.mkDefault "US/Eastern";
