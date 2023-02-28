@@ -1,5 +1,5 @@
-{ lib }: {
-  hardware.pulseaudio.enable = lib.mkDefault true;
+{ lib, ... }: {
+  hardware.pulseaudio.enable = false;
 
   networking = {
     networkmanager.wifi.backend = "iwd";

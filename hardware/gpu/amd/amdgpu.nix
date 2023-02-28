@@ -1,4 +1,4 @@
-{ lib, pkgs }: {
+{ lib, pkgs, ... }: {
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   environment.variables.AMD_VULKAN_ICD = lib.mkDefault "RADV";

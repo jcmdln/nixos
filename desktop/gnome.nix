@@ -1,10 +1,9 @@
-{ lib, pkgs }: {
+{ lib, pkgs, ... }: {
   imports = [ ./common.nix ];
 
-  environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-  ];
+  environment.systemPackages = with pkgs; [ gnome.gnome-tweaks ];
 
+  # Allow port 3389 for GNOME Remote Desktop
   networking.firewall.allowedTCPPorts = [ 3389 ];
 
   services = {

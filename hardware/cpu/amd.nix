@@ -1,4 +1,4 @@
-{ config, lib, }:
+{ config, lib, ... }:
 let kver = config.boot.kernelPackages.kernel.version; in
 {
   # https://www.kernel.org/doc/html/latest/admin-guide/pm/amd-pstate.html
