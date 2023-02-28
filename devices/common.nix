@@ -3,7 +3,6 @@
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    extra-substituters = "https://nix-community.cachix.org";
   };
 
   nixpkgs.config.allowUnfree = lib.mkDefault true;
