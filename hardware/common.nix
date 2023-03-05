@@ -1,5 +1,5 @@
-{ lib, ... }: {
-  fileSystems = lib.mkDefault {
+{ ... }: {
+  fileSystems = {
     "/boot" = {
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
@@ -24,5 +24,5 @@
     };
   };
 
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
+  hardware.enableRedistributableFirmware = true;
 }

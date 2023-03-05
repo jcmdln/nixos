@@ -1,19 +1,19 @@
-{ lib, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [ ../hardware/common.nix ];
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
   };
 
-  nixpkgs.config.allowUnfree = lib.mkDefault true;
+  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "22.11";
-  time.timeZone = lib.mkDefault "US/Eastern";
+  time.timeZone = "US/Eastern";
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_6_1;
+    kernelPackages = pkgs.linuxPackages_6_1;
     loader = {
-      efi.canTouchEfiVariables = lib.mkDefault true;
-      systemd-boot.enable = lib.mkDefault true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
     };
   };
 
@@ -32,34 +32,34 @@
   ]);
 
   networking = {
-    networkmanager.enable = lib.mkDefault true;
+    networkmanager.enable = true;
   };
 
   programs = {
-    gnupg.agent.enable = lib.mkDefault true;
-    mtr.enable = lib.mkDefault true;
+    gnupg.agent.enable = true;
+    mtr.enable = true;
   };
 
-  security.rtkit.enable = lib.mkDefault true;
+  security.rtkit.enable = true;
 
   services = {
-    dbus.enable = lib.mkDefault true;
-    fwupd.enable = lib.mkDefault true;
-    openssh.enable = lib.mkDefault true;
+    dbus.enable = true;
+    fwupd.enable = true;
+    openssh.enable = true;
     resolved = {
-      enable = lib.mkDefault true;
-      dnssec = lib.mkDefault "false";
-      llmnr = lib.mkDefault "false";
+      enable = true;
+      dnssec = "false";
+      llmnr = "false";
     };
   };
 
   virtualisation.podman = {
-    enable = lib.mkDefault true;
-    dockerCompat = lib.mkDefault true;
+    enable = true;
+    dockerCompat = true;
   };
 
   zramSwap = {
-    enable = lib.mkDefault true;
+    enable = true;
     memoryMax = 8 * 1024 * 1024 * 1024; # 8GiB
     memoryPercent = 25;
   };

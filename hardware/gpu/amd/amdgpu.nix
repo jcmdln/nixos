@@ -1,7 +1,7 @@
-{ lib, pkgs, ... }: {
+{ pkgs, ... }: {
   boot.initrd.kernelModules = [ "amdgpu" ];
 
-  environment.variables.AMD_VULKAN_ICD = lib.mkDefault "RADV";
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   hardware.opengl = {
     extraPackages = with pkgs; [
@@ -14,9 +14,9 @@
       driversi686Linux.amdvlk
     ];
 
-    driSupport = lib.mkDefault true;
-    driSupport32Bit = lib.mkDefault true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
-  services.xserver.videoDrivers = lib.mkDefault [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }
