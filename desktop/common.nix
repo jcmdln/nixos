@@ -2,7 +2,10 @@
   hardware.pulseaudio.enable = false;
 
   networking = {
-    networkmanager.wifi.backend = "iwd";
+    networkmanager.wifi = {
+      backend = "iwd";
+      powersave = false;
+    };
     wireless.iwd.enable = true;
   };
 
