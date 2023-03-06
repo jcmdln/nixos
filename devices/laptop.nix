@@ -4,6 +4,8 @@
   environment.systemPackages = (with pkgs; [ vscode ]);
   networking.hostName = "laptop";
 
+  services.logind.lidSwitchExternalPower = "ignore";
+
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
